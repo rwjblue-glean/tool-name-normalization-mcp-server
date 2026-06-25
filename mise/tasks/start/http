@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Run the HTTP MCP server"
+set -euo pipefail
+
+npm run start:http -- "$@"

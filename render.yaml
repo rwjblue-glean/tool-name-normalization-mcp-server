@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: tool-name-normalization-mcp-server-stateless
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node --experimental-strip-types src/http.ts --stateless
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: ALLOWED_HOSTS
+        value: tool-name-normalization-mcp-server-stateless.onrender.com
+
+  - type: web
+    name: tool-name-normalization-mcp-server-stateful
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node --experimental-strip-types src/http.ts
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: ALLOWED_HOSTS
+        value: tool-name-normalization-mcp-server-stateful.onrender.com
