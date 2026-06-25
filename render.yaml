@@ -13,7 +13,7 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: ALLOWED_HOSTS
-        value: tool-name-normalization-mcp-server-stateless.onrender.com
+        value: tool-name-normalization-mcp-server.onrender.com,tool-name-normalization-mcp-server-8ghm.onrender.com
 
   - type: web
     name: tool-name-normalization-mcp-server-stateful
@@ -29,4 +29,4 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: ALLOWED_HOSTS
-        value: tool-name-normalization-mcp-server-stateful.onrender.com
+        value: tool-name-normalization-mcp-server.onrender.com,tool-name-normalization-mcp-server-8ghm.onrender.com
