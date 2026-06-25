@@ -14,6 +14,16 @@ breaking lookup. We want to know whether that's still true before dropping
 case normalization from the server (so built-in / pyagents `CAPITAL_CASE` names
 and external camelCase gateway names can be preserved verbatim).
 
+## Add to Cursor (one-click)
+
+The Render deployment must be live first. Clicking a button opens Cursor with the
+server config pre-filled; confirm to install, then run the prompts in
+[TEST_PLAN.md](./TEST_PLAN.md).
+
+**Stateful** (recommended for Cursor): [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=tool-name-normalization-stateful&config=eyJ1cmwiOiJodHRwczovL3Rvb2wtbmFtZS1ub3JtYWxpemF0aW9uLW1jcC1zZXJ2ZXItc3RhdGVmdWwub25yZW5kZXIuY29tL21jcCJ9)
+
+**Stateless**: [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=tool-name-normalization-stateless&config=eyJ1cmwiOiJodHRwczovL3Rvb2wtbmFtZS1ub3JtYWxpemF0aW9uLW1jcC1zZXJ2ZXItc3RhdGVsZXNzLm9ucmVuZGVyLmNvbS9tY3AifQ==)
+
 ## How it works
 
 The server advertises tools spanning every casing style:
