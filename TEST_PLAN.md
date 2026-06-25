@@ -56,8 +56,8 @@ transformation (e.g. `SCREAMING_SNAKE_TOOL` -> `screaming_snake_tool`,
 Once the Render deployment is live, click to install in Cursor (opens Cursor with
 the config pre-filled; confirm to add):
 
-- **Stateful** (recommended): [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=tool-name-normalization-stateful&config=eyJ1cmwiOiJodHRwczovL3Rvb2wtbmFtZS1ub3JtYWxpemF0aW9uLW1jcC1zZXJ2ZXIub25yZW5kZXIuY29tL21jcCJ9)
-- **Stateless**: [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=tool-name-normalization-stateless&config=eyJ1cmwiOiJodHRwczovL3Rvb2wtbmFtZS1ub3JtYWxpemF0aW9uLW1jcC1zZXJ2ZXItOGdobS5vbnJlbmRlci5jb20vbWNwIn0=)
+- **Stateful** (recommended): [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=tool-name-normalization-stateful&config=eyJ1cmwiOiJodHRwczovL3Rvb2wtbmFtZS1ub3JtYWxpemF0aW9uLW1jcC1zZXJ2ZXIub25yZW5kZXIuY29tL21jcCJ9)
+- **Stateless**: [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=tool-name-normalization-stateless&config=eyJ1cmwiOiJodHRwczovL3Rvb2wtbmFtZS1ub3JtYWxpemF0aW9uLW1jcC1zZXJ2ZXItOGdobS5vbnJlbmRlci5jb20vbWNwIn0%3D)
 
 Or configure manually with the URLs below.
 
