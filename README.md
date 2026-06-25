@@ -14,6 +14,16 @@ breaking lookup. We want to know whether that's still true before dropping
 case normalization from the server (so built-in / pyagents `CAPITAL_CASE` names
 and external camelCase gateway names can be preserved verbatim).
 
+## Findings (2026-06-25)
+
+**Validated: current Cursor invokes MCP tool names verbatim** — no lowercasing, no
+snake-casing, not even for names with spaces or capitals. All 8 probe tools
+(including `SCREAMING_SNAKE_TOOL`, `camelCaseTool`, and `Glean Search`)
+round-tripped exactly; `report_call_log` reported 8 calls, 0 mismatches. The
+munging that motivated [scio#147939](https://github.com/askscio/scio/pull/147939)
+— Cursor rewriting `Glean Search` → `glean_search` before invoking — is fixed.
+Full table and caveats in [TEST_PLAN.md](./TEST_PLAN.md).
+
 ## Add to Cursor (one-click)
 
 The Render deployment must be live first. Clicking a button opens Cursor with the

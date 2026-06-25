@@ -18,6 +18,29 @@ Cursor is the host of record for this experiment: PR
 server-side lowercasing because Cursor munged `Glean Search` -> `glean_search`
 and then invoked the munged name. We want to know whether that is still true.
 
+## Findings (2026-06-25): Cursor invokes tool names verbatim
+
+**Validated against current Cursor (June 2026): tool names are NOT munged — the #147939 behavior is fixed.**
+
+Connected the stateful deployment to Cursor, asked it to call every advertised tool, then `report_call_log`. All 8 names arrived exactly as advertised — capitals, camelCase, and a literal space included:
+
+| Advertised name | Received name | Verbatim? |
+| --- | --- | --- |
+| `snake_case_tool` | `snake_case_tool` | ✅ |
+| `camelCaseTool` | `camelCaseTool` | ✅ |
+| `PascalCaseTool` | `PascalCaseTool` | ✅ |
+| `SCREAMING_SNAKE_TOOL` | `SCREAMING_SNAKE_TOOL` | ✅ |
+| `kebab-case-tool` | `kebab-case-tool` | ✅ |
+| `mixedCASE_Tool_v2` | `mixedCASE_Tool_v2` | ✅ |
+| `addCommentToJiraIssue` | `addCommentToJiraIssue` | ✅ |
+| `Glean Search` | `Glean Search` | ✅ |
+
+`report_call_log`: **8 calls, 0 did not match an advertised name.**
+
+The space case is decisive: PR [#147939](https://github.com/askscio/scio/pull/147939) added server-side lowercasing specifically because Cursor used to rewrite `Glean Search` -> `glean_search` and then invoke the munged name, breaking exact-match dispatch. Cursor now calls `Glean Search` verbatim, so that failure mode no longer occurs — and being able to invoke a spaced name at all means it isn't munging at list-time either.
+
+**Caveats:** point-in-time (a single Cursor version, June 2026 — could regress) and Cursor-only (it was the only host with a documented munging bug; the other hosts in the matrix below are untested but have no known issue).
+
 ## How the server reports munging
 
 Every advertised tool routes through a single catch-all `tools/call` handler. It
@@ -97,7 +120,7 @@ Run the sequence for each supported host/mode pair.
 
 | Host           | HTTP stateful | HTTP stateless | Notes |
 | -------------- | ------------- | -------------- | ----- |
-| Cursor         |               |                | host of record (#147939) |
+| Cursor         | ✅ verbatim    |                | host of record (#147939); see Findings above |
 | Cursor Agent   |               |                |       |
 | Claude Code    |               |                |       |
 | Claude Desktop |               |                |       |
